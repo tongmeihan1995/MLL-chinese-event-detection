@@ -1,8 +1,7 @@
 Chinese Event Detection Using Lattice LSTM based Multi-task Learning (MLL)
 ====
 
-Models and results can be found at our KSEM 202O paper [Chinese ](https://arxiv.org/pdf/1805.02023.pdf). It achieves 67% F1-value on MSRA dataset.
-Details will be updated soon.
+Models and results can be found at our KSEM 2020 paper Improving Low-Resource Chinese Event Detection with Multi-task Learning. 
 
 Requirement:
 ======
@@ -13,42 +12,25 @@ Input format:
 ======
 BMSE tag scheme, with each character its label for one line. Sentences are splited with a null line.
 
-	他 NA
-说 NA
-， NA
-原 NA
-本 NA
-活 NA
-泼 NA
-好 NA
-动 NA
-的 NA
-他 NA
-如 NA
-今 NA
-半 B-Injure
-身 M-Injure
-不 M-Injure
-遂 E-Injure
-， NA
-他 NA
-孤 NA
-立 NA
-自 NA
-己 NA美	B-LOC
-	国	E-LOC
-	的	O
-	华	B-PER
-	莱	M-PER
-	士	E-PER
+	他 0
+	说 0
+	， 0
+	原 0
+	本 0
+	活 0
+	泼 0
+	好 0
+	动 0
+	的 0
+	他 0
+	如 0
+	今 0
+	半 B-Injure
+	身 M-Injure
+	不 M-Injure
+	遂 E-Injure
+	. 0
 
-	我	O
-	跟	O
-	他	O
-	谈	O
-	笑	O
-	风	O
-	生	O 
 
 Pretrained Embeddings:
 ====
