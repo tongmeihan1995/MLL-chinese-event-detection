@@ -57,6 +57,7 @@ How to run the code?
 Cite: 
 ========
 Please cite our KSEM 2020 paper:
+
     @article{tong2020improving,  
      title={Improving Low-Resource Chinese Event Detection with Multi-task Learning},  
      author={Meihan Tong, Bin Xu, Shuai Wang, Hou Lei, Juaizi Li},  
