@@ -1,27 +1,45 @@
-Chinese NER Using Lattice LSTM
+Chinese Event Detection Using Lattice LSTM based Multi-task Learning (MLL)
 ====
 
-Lattice LSTM for Chinese NER. Character based LSTM with Lattice embeddings as input.
-
-Models and results can be found at our ACL 2018 paper [Chinese NER Using Lattice LSTM](https://arxiv.org/pdf/1805.02023.pdf). It achieves 93.18% F1-value on MSRA dataset, which is the state-of-the-art result on Chinese NER task.
-
+Models and results can be found at our KSEM 202O paper [Chinese ](https://arxiv.org/pdf/1805.02023.pdf). It achieves 67% F1-value on MSRA dataset.
 Details will be updated soon.
 
 Requirement:
 ======
 	Python: 2.7   
 	PyTorch: 0.3.0 
-(for PyTorch 0.3.1, please refer [issue#8](https://github.com/jiesutd/LatticeLSTM/issues/8) for a slight modification.)
 
 Input format:
 ======
-CoNLL format (prefer BIOES tag scheme), with each character its label for one line. Sentences are splited with a null line.
+BMSE tag scheme, with each character its label for one line. Sentences are splited with a null line.
 
-	美	B-LOC
+	他 NA
+说 NA
+， NA
+原 NA
+本 NA
+活 NA
+泼 NA
+好 NA
+动 NA
+的 NA
+他 NA
+如 NA
+今 NA
+半 B-Injure
+身 M-Injure
+不 M-Injure
+遂 E-Injure
+， NA
+他 NA
+孤 NA
+立 NA
+自 NA
+己 NA美	B-LOC
 	国	E-LOC
 	的	O
 	华	B-PER
-	莱	I-PER
+	莱	M-PER
 	士	E-PER
 
 	我	O
@@ -40,25 +58,26 @@ Character embeddings: [gigaword_chn.all.a2b.uni.ite50.vec](https://pan.baidu.com
 
 Word(Lattice) embeddings: [ctb.50d.vec](https://pan.baidu.com/s/1pLO6T9D)
 
+Multi-learning Tasks:
+====
+For NER task, we use the MSRA corpus
+
+For Mask Word Prediction task, we use the lastest Wiki corpus
+
 How to run the code?
 ====
 1. Download the character embeddings and word embeddings and put them in the `data` folder.
-2. Modify the `run_main.py` or `run_demo.py` by adding your train/dev/test file directory.
-3. `sh run_main.py` or `sh run_demo.py`
-
-
-Resume NER data 
-====
-Crawled from the Sina Finance, it includes the resumes of senior executives from listed companies in the Chinese stock market. Details can be found in our paper.
+2. Download the NER corpus and Wiki corpus and put them in the `data` folder.
+3. For training, run the script `run_main.sh`
+4. For testing, run the script `run_test.sh`
 
 
 Cite: 
 ========
-Please cite our ACL 2018 paper:
-
-    @article{zhang2018chinese,  
-     title={Chinese NER Using Lattice LSTM},  
-     author={Yue Zhang and Jie Yang},  
-     booktitle={Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (ACL)},
-     year={2018}  
+Please cite our KSEM 2020 paper:
+    @article{tong2020improving,  
+     title={Improving Low-Resource Chinese Event Detection with Multi-task Learning},  
+     author={Meihan Tong, Bin Xu, Shuai Wang, Hou Lei, Juaizi Li},  
+     booktitle={Knowledge Science, Engineering and Management(KSEM))},
+     year={2020}  
     }
